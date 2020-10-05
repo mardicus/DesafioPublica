@@ -68,7 +68,7 @@
                </font>
             </Label>
             <TextField fx:id="textGameScore" layoutX="368.0" layoutY="72.0" prefHeight="34.0" prefWidth="168.0" promptText="Ex: 24" />
-            <Button fx:id="enterButton" layoutX="564.0" layoutY="68.0" mnemonicParsing="false" onAction="#onEnterButtonAction" prefHeight="68.0" prefWidth="113.0" text="Inserir">
+            <Button fx:id="enterButton" layoutX="559.0" layoutY="64.0" mnemonicParsing="false" onAction="#onEnterButtonAction" prefHeight="49.0" prefWidth="92.0" text="Inserir">
                <font>
                   <Font size="22.0" />
                </font></Button>
@@ -78,11 +78,7 @@
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#openMenuAction" text="Abrir" />
                         <MenuItem mnemonicParsing="false" onAction="#saveMenuAction" text="Salvar" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Ajuda">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Sobre..." />
+                        <MenuItem mnemonicParsing="false" onAction="#saveMenuAction" text="Salvar Como..." />
                   </items>
                 </Menu>
               </menus>

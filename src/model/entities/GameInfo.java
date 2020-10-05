@@ -7,7 +7,7 @@ public class GameInfo {
 	private Integer seasonMaximum;
 	private Integer minimumRecordBreak;
 	private Integer maximumRecordBreak;
-	
+
 	public GameInfo(Integer gameNumber, Integer gameScore, Integer seasonMinimum, Integer seasonMaximum,
 			Integer minimumRecordBreak, Integer maximumRecordBreak) {
 		this.gameNumber = gameNumber;

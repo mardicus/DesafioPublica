@@ -20,7 +20,6 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
@@ -43,9 +42,6 @@ public class MainViewController implements Initializable {
 	private MenuBar menu = new MenuBar();
 	@FXML
 	GridPane gridPane = new GridPane();
-	private MenuItem openFile = new MenuItem();
-	private MenuItem saveFile = new MenuItem();
-	private MenuItem about = new MenuItem();
 	private int gameScore;
 
 	public MenuBar getMenu() {
@@ -56,8 +52,6 @@ public class MainViewController implements Initializable {
 
 	private List<GameInfo> gamesList = new ArrayList<>();
 	public static List<GameInfo> saveFilesGamesList = new ArrayList<>();
-
-
 
 	public MainViewController() throws FileNotFoundException, IOException {
 	}
@@ -83,31 +77,32 @@ public class MainViewController implements Initializable {
 			gameService.addFileGame(openGamesList);
 			gamesList = gameService.getList();
 
-			for(int i = 0; i<gamesList.size();i++) {
-			List<Label> labelList = new ArrayList<>();
-			labelList.clear();
-			labelList.add(new Label(gamesList.get(i).getGameNumber().toString()));
-			labelList.add(new Label(gamesList.get(i).getGameScore().toString()));
-			labelList.add(new Label(gamesList.get(i).getSeasonMinimum().toString()));
-			labelList.add(new Label(gamesList.get(i).getSeasonMaximum().toString()));
-			labelList.add(new Label(gamesList.get(i).getMinimumRecordBreak().toString()));
-			labelList.add(new Label(gamesList.get(i).getMaximumRecordBreak().toString()));
-	
-			this.addGridPane(gridPane, labelList);
+			for (int i = 0; i < gamesList.size(); i++) {
+				List<Label> labelList = new ArrayList<>();
+				labelList.clear();
+				labelList.add(new Label(gamesList.get(i).getGameNumber().toString()));
+				labelList.add(new Label(gamesList.get(i).getGameScore().toString()));
+				labelList.add(new Label(gamesList.get(i).getSeasonMinimum().toString()));
+				labelList.add(new Label(gamesList.get(i).getSeasonMaximum().toString()));
+				labelList.add(new Label(gamesList.get(i).getMinimumRecordBreak().toString()));
+				labelList.add(new Label(gamesList.get(i).getMaximumRecordBreak().toString()));
+
+				this.addGridPane(gridPane, labelList);
 			}
 		} catch (FileNotFoundException f) {
 			Alerts.showAlert("Erro", null, "Arquivo não encontrado", AlertType.ERROR);
 		} catch (IOException i) {
 			Alerts.showAlert("Erro", null, "Erro na entrada ou saida de dados", AlertType.ERROR);
 		} catch (NumberFormatException i) {
-			Alerts.showAlert("Erro", null, "Formato de entrada invalido, deve ser um número inteiro ou um arquivo .CSV", AlertType.ERROR);
+			Alerts.showAlert("Erro", null, "Formato de entrada invalido, deve ser um número inteiro ou um arquivo .CSV",
+					AlertType.ERROR);
 		}
 	}
 
 	public void onEnterButtonAction() {
 		try {
 			gameScore = Integer.parseInt(textGameScore.getText());
-			if(gameScore > 1000) {
+			if (gameScore > 1000) {
 				throw new EntranceException();
 			}
 			gameService.addScore(gameScore);
@@ -150,7 +145,7 @@ public class MainViewController implements Initializable {
 		}
 		column++;
 	}
-	
+
 	@FXML
 	private void saveMenuAction(ActionEvent event) throws IOException {
 		FileChooser fileChooser = new FileChooser();
@@ -164,8 +159,8 @@ public class MainViewController implements Initializable {
 	public File getSourceFile() {
 		return sourceFile;
 	}
-	
-	public List<GameInfo> getSaveFileGamesList(){
+
+	public List<GameInfo> getSaveFileGamesList() {
 		return saveFilesGamesList;
 	}
 

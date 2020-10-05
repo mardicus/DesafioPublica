@@ -18,7 +18,6 @@ public class GameService {
 	}
 
 	private String fileLine;
-	private BufferedReader br;
 	private List<GameInfo> gamesList = new ArrayList<>();
 	private List<Integer[]> fileData = new ArrayList<>();
 	private int gameScore = 0;
@@ -26,7 +25,6 @@ public class GameService {
 	private int maximumRecordBreak = 0;
 	private int gameNumber;
 
-	
 	public void buffering(FileRepository repos) throws IOException {
 		fileData.clear();
 		BufferedReader br = new BufferedReader(new FileReader(repos.getSourceFile()));
@@ -37,7 +35,7 @@ public class GameService {
 			fileLine = br.readLine();
 		}
 	}
-	
+
 	public void addScore(int Score) {
 		gameScore = Score;
 	}
@@ -73,11 +71,11 @@ public class GameService {
 		return new GameInfo(gameNumber, gameScore, seasonMinimum, seasonMaximum, minimumRecordBreak,
 				maximumRecordBreak);
 	}
-	
+
 	public List<GameInfo> getList() {
 		return gamesList;
 	}
-	
+
 	private int updateGameNumber() {
 		return gameNumber += 1;
 	}

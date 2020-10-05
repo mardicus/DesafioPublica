@@ -81,11 +81,6 @@
                         <MenuItem mnemonicParsing="false" onAction="#saveMenuAction" text="Salvar Como..." />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Ajuda">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Sobre..." />
-                  </items>
-                </Menu>
               </menus>
             </MenuBar>
          </children></AnchorPane>
